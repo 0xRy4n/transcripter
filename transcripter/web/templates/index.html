@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #results {
+            margin-top: 20px;
+        }
+        .result {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .video-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .snippet {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Videos</h1>
+    <input type="text" id="search-input" placeholder="Enter keywords..." oninput="performSearch()">
+    <div id="results"></div>
+
+    <script>
+        async function performSearch() {
+            const query = document.getElementById('search-input').value;
+            if (query.length < 3) {
+                document.getElementById('results').innerHTML = '';
+                return;
+            }
+
+            const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+            const results = await response.json();
+
+const resultsDiv = document.getElementById('results');
+resultsDiv.innerHTML = '';
+
+results.forEach(result => {
+    const resultDiv = document.createElement('div');
+    resultDiv.className = 'result';
+
+    const titleDiv = document.createElement('div');
+    titleDiv.className = 'video-title';
+    // round timecode down to nearest integer
+    titleDiv.textContent = `${result.video_title} (Timecode: ${Math.floor(result.timecode)})`;
+
+    const snippetDiv = document.createElement('div');
+    snippetDiv.className = 'snippet';
+    snippetDiv.textContent = result.snippet;
+
+    resultDiv.appendChild(titleDiv);
+    resultDiv.appendChild(snippetDiv);
+
+    const anchor = document.createElement('a');
+    anchor.href = 'https://www.youtube.com/watch?v=' + result.video_id + '&t=' + Math.floor(result.timecode) + 's';
+    anchor.appendChild(resultDiv);
+
+    resultsDiv.appendChild(anchor);
+});
+        }
+    </script>
+</body>
+</html>

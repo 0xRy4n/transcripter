@@ -1,0 +1,45 @@
+.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Compiled Python modules
+*.pyc
+*.pyo
+*.pyd
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Translations
+*.mo
+*.pot
+
+# Documentation
+docs/_build/
+
+# Miscellaneous
+*.bak
+*.swp
+*.tmp
+*~
