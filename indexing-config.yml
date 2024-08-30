@@ -1,0 +1,12 @@
+# Change me
+sources:
+  playlists:
+    # playlist id
+    - PLlkHl5i0GaAlBvAhi9R7S4vQ0IhR3ePCU
+  channels:
+    - # channel id
+  videos:
+    - # video id
+
+indexing:
+  interval: 3600  # Reindex every hour

@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "transcripter"
+version = "0.1.0"
+authors = [
+  { name = "Ryan Gordon", email = "mail@ry4n.sh" },
+]
+description = "A tool for indexing and searching YouTube transcripts."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "flask",
+    "redis",
+    "redisearch",
+    "python-dotenv",
+    "youtube-transcript-api",
+    "python-youtube",
+    "pyyaml",
+    "loguru"
+]
+
+[project.optional-dependencies]
+dev = [
+    "mock"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/0xRy4n/transcripter"
+"Bug Tracker" = "https://github.com/0xRy4n/transcripter/issues"
+
+[project.scripts]
+transcripter = "transcripter.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["transcripter"]
+
+[tool.coverage.run]
+source = ["transcripter"]

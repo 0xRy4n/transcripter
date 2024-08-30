@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcripter - YouTube Transcript Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Transcripter</h1>
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Enter keywords to search transcripts...">
+    </div>
+    <div id="results"></div>
+
+    <script>
+        let debounceTimeout;
+
+        async function performSearch() {
+            const query = document.getElementById('search-input').value;
+            if (query.length < 3) {
+                document.getElementById('results').innerHTML = '<p>Please enter at least 3 characters to search.</p>';
+                return;
+            }
+
+            const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+            const results = await response.json();
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+
+            if (results.length === 0) {
+                resultsDiv.innerHTML = '<p>No results found.</p>';
+                return;
+            }
+
+            results.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result';
+
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'video-title';
+                titleDiv.innerHTML = `<a href="https://www.youtube.com/watch?v=${result.video_id}&t=${Math.floor(result.start_time)}s" target="_blank">${result.video_title}</a> (${result.timecode})`;
+
+                const snippetDiv = document.createElement('div');
+                snippetDiv.className = 'snippet';
+                snippetDiv.textContent = result.snippet;
+
+                resultDiv.appendChild(titleDiv);
+                resultDiv.appendChild(snippetDiv);
+
+                resultsDiv.appendChild(resultDiv);
+            });
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        document.getElementById('search-input').addEventListener('input', function() {
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(performSearch, 300);
+        });
+    </script>
+</body>
+</html>
