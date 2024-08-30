@@ -35,6 +35,8 @@ dev = [
 [project.urls]
 "Homepage" = "https://github.com/0xRy4n/transcripter"
 "Bug Tracker" = "https://github.com/0xRy4n/transcripter/issues"
+"Author Twitter" = "https://x.com/0xRy4n"
+"Author Site" = "https://ry4n.sh"
 
 [project.scripts]
 transcripter = "transcripter.cli:main"
