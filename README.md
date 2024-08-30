@@ -17,7 +17,7 @@
 
 ![Transcripter](https://i.imgur.com/jg9sc7p.gif)
 
-![Static Badge](https://img.shields.io/badge/Documentation-View_Now-green?link=https%3A%2F%2F0xry4n.github.io%2Ftranscripter%2F) ![X Follow](https://img.shields.io/twitter/follow/0xRy4n)
+<a href="https://0xry4n.github.io/transcripter"> ![Static Badge](https://img.shields.io/badge/Documentation-View_Now-green?link=https%3A%2F%2F0xry4n.github.io%2Ftranscripter%2F) </a> <a href="https://x.com/0xry4n">![X Follow](https://img.shields.io/twitter/follow/0xRy4n)</a>
 
 </div>
 
