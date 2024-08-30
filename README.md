@@ -1,17 +1,23 @@
-
 # Transcripter
 
 <p align="center">
-  <img src="https://github.com/0xry4n/transcripter/actions/workflows/housekeeping.yml/badge.svg" alt="Linting and Documentation">
+  <img src="https://github.com/0xRy4n/transcripter/actions/workflows/housekeeping.yml/badge.svg" alt="Linting and Documentation">
   <a href="https://app.codacy.com/gh/0xRy4n/transcripter/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade">
     <img src="https://app.codacy.com/project/badge/Grade/7233dfa7498c4801bbfc024b2675b2b0" alt="Codacy Badge">
+  </a>
+  <a href="https://pypi.org/project/transcripter">
+    <img src="https://github.com/0xRy4n/transcripter/actions/workflows/publish.yml/badge.svg" alt="Publish to PyPI">
+  </a>
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
   </a>
-  </a>
 </p>
 
+<div align="center">
+  
 ![Transcripter](https://i.imgur.com/jg9sc7p.gif)
+
+</div>
 
 
 Transcripter is a tool for indexing and searching YouTube video transcripts. It makes use of the YouTube Data API to fetch video details and transcripts, and collates and stores the transcript chunks in Redis for efficient full-text search.
@@ -43,6 +49,13 @@ Transcripter's main purpose is to provide a simple way to add transcript-search 
 4. Indexed data can be searched efficiently using Redis's full-text search capabilities.
 
 ## Installation
+
+You can install from PyPI:
+```bash
+pip install transcripter
+```
+
+#### Manual Installation
 
 ```bash
 make install
