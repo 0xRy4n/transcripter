@@ -1,11 +1,22 @@
+
 # Transcripter
+
+<p align="center">
+  <img src="https://github.com/0xry4n/transcripter/actions/workflows/housekeeping.yml/badge.svg" alt="Linting and Documentation">
+  <a href="https://app.codacy.com/gh/0xRy4n/transcripter/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade">
+    <img src="https://app.codacy.com/project/badge/Grade/7233dfa7498c4801bbfc024b2675b2b0" alt="Codacy Badge">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
+  </a>
+  </a>
+</p>
 
 ![Transcripter](https://i.imgur.com/jg9sc7p.gif)
 
 
 Transcripter is a tool for indexing and searching YouTube video transcripts. It makes use of the YouTube Data API to fetch video details and transcripts, and collates and stores the transcript chunks in Redis for efficient full-text search.
 
-Transcripter's main purpose is to provide a simple way to add transcript-search functionality to your application. Inspired by (but unrelated to) https://ippsec.rocks/. 
+Transcripter's main purpose is to provide a simple way to add transcript-search functionality to your application. Inspired by (but unrelated to) <https://ippsec.rocks/>. 
 
 ## Structure
 
@@ -149,7 +160,7 @@ It will return a list of stored transcript chunks in the following format:
     "video_title": "Linux Structure and Commands - Intro to Hacking w/ HTB Academy #4"
   }
 ]
-  ```
+```
 
 ## Example Web App
 
@@ -168,7 +179,7 @@ Alternatively, you can run the app without Docker by installing the dependencies
 
 First you'll need to run Redis Stack in a docker container:
 ```bash
-`docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest`
+docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
 ```
 
 Then install the dependencies and run the app:
@@ -176,4 +187,3 @@ Then install the dependencies and run the app:
 pip3 install -e .
 python3 examples/basic/app.py
 ```
-

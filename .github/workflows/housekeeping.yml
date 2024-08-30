@@ -63,9 +63,9 @@ jobs:
 
     - name: Generate documentation
       run: |
+        pip install pdoc3
         mkdir -p docs
-        python -m pydoc -w transcripter
-        mv *.html docs/
+        python -m pdoc --html --output-dir docs transcripter
 
     - name: Commit documentation changes
       run: |
@@ -75,7 +75,7 @@ jobs:
         git commit -m "Update documentation" || echo "No changes to commit"
 
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: ad-m/github-push-action@v0.8.0
       with:
         github_token: ${{ secrets.GH_TOKEN }}
         branch: ${{ github.ref }}

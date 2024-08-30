@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>transcripter.services API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>transcripter.services</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="transcripter.services.indexing_service" href="indexing_service.html">transcripter.services.indexing_service</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="transcripter.services.search_service" href="search_service.html">transcripter.services.search_service</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="transcripter.services.IndexingService"><code class="flex name class">
+<span>class <span class="ident">IndexingService</span></span>
+<span>(</span><span>config: <a title="transcripter.config.Config" href="../config.html#transcripter.config.Config">Config</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Service for indexing YouTube videos and their transcripts into Redis.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>Config</code></dt>
+<dd>Configuration object containing settings.</dd>
+<dt><strong><code>youtube_manager</code></strong> :&ensp;<code>YouTubeManager</code></dt>
+<dd>Manager for interacting with YouTube API.</dd>
+<dt><strong><code>redis_manager</code></strong> :&ensp;<code>RedisManager</code></dt>
+<dd>Manager for interacting with Redis.</dd>
+</dl>
+<p>Initializes the IndexingService with the given configuration.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>Config</code></dt>
+<dd>Configuration object containing settings.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IndexingService:
+    &#34;&#34;&#34;
+    Service for indexing YouTube videos and their transcripts into Redis.
+
+    Attributes:
+        config (Config): Configuration object containing settings.
+        youtube_manager (YouTubeManager): Manager for interacting with YouTube API.
+        redis_manager (RedisManager): Manager for interacting with Redis.
+    &#34;&#34;&#34;
+
+    def __init__(self, config: Config) -&gt; None:
+        &#34;&#34;&#34;
+        Initializes the IndexingService with the given configuration.
+
+        Args:
+            config (Config): Configuration object containing settings.
+        &#34;&#34;&#34;
+        self.config: Config = config
+        self.youtube_manager: YouTubeManager = YouTubeManager(self.config)
+        self.redis_manager: RedisManager = RedisManager(self.config)
+        logger.info(&#34;IndexingService initialized&#34;)
+        self._ensure_connection()
+
+    def _ensure_connection(self) -&gt; None:
+        &#34;&#34;&#34;
+        Ensures a connection to the Redis server.
+        &#34;&#34;&#34;
+        self.redis_manager.ensure_connection()
+
+    def index_all(self) -&gt; List[Dict[str, Union[List[str], Dict[str, List[str]]]]]:
+        &#34;&#34;&#34;
+        Indexes all configured playlists, channels, and videos.
+
+        Returns:
+            List[Dict[str, Union[List[str], Dict[str, List[str]]]]]: A list of dictionaries containing indexed and newly indexed video IDs.
+        &#34;&#34;&#34;
+        logger.info(&#34;Starting index_all&#34;)
+        results: List[Dict[str, Union[List[str], Dict[str, List[str]]]]] = []
+
+        results.extend(
+            self._index_entities(
+                self.config.playlists, self._index_playlist, &#34;playlists&#34;
+            )
+        )
+        results.extend(
+            self._index_entities(self.config.channels, self._index_channel, &#34;channels&#34;)
+        )
+        results.extend(
+            self._index_entities(self.config.videos, self._index_video, &#34;videos&#34;)
+        )
+
+        return results
+
+    def _index_entities(
+        self, entities: Optional[List[str]], index_method: Any, entity_type: str
+    ) -&gt; List[Dict[str, Union[List[str], Dict[str, List[str]]]]]:
+        &#34;&#34;&#34;
+        Indexes a list of entities (playlists, channels, or videos) using the provided index method.
+
+        Args:
+            entities (Optional[List[str]]): List of entity IDs to index.
+            index_method (Any): Method to use for indexing the entities.
+            entity_type (str): Type of entities being indexed (e.g., &#34;playlists&#34;, &#34;channels&#34;, &#34;videos&#34;).
+
+        Returns:
+            List[Dict[str, Union[List[str], Dict[str, List[str]]]]]: A list of dictionaries containing indexed and newly indexed video IDs.
+        &#34;&#34;&#34;
+        if entities:
+            return [index_method(entity_id) for entity_id in entities]
+        else:
+            logger.info(f&#34;No {entity_type} configured for indexing&#34;)
+            return []
+
+    def _index_playlist(
+        self, playlist_id: str
+    ) -&gt; Dict[str, Union[List[str], Dict[str, List[str]]]]:
+        &#34;&#34;&#34;
+        Indexes all videos in a given playlist.
+
+        Args:
+            playlist_id (str): The ID of the playlist to index.
+
+        Returns:
+            Dict[str, Union[List[str], Dict[str, List[str]]]]: A dictionary containing indexed and newly indexed video IDs.
+        &#34;&#34;&#34;
+        logger.info(f&#34;Indexing playlist: {playlist_id}&#34;)
+        video_details: Dict[str, Dict[str, Union[str, int]]] = (
+            self.youtube_manager.get_all_video_details_from_playlist(playlist_id)
+        )
+        logger.info(
+            f&#34;Retrieved {len(video_details)} videos from playlist {playlist_id}&#34;
+        )
+        return self._index_videos(video_details)
+
+    def _index_channel(
+        self, channel_id: str
+    ) -&gt; Dict[str, Union[List[str], Dict[str, List[str]]]]:
+        &#34;&#34;&#34;
+        Indexes all videos in a given channel.
+
+        Args:
+            channel_id (str): The ID of the channel to index.
+
+        Returns:
+            Dict[str, Union[List[str], Dict[str, List[str]]]]: A dictionary containing indexed and newly indexed video IDs.
+        &#34;&#34;&#34;
+        logger.info(f&#34;Indexing channel: {channel_id}&#34;)
+        video_details: Dict[str, Dict[str, Union[str, int]]] = (
+            self.youtube_manager.get_all_video_details_from_channel(channel_id)
+        )
+        return self._index_videos(video_details)
+
+    def _index_video(
+        self, video_id: str
+    ) -&gt; Dict[str, Union[List[str], Dict[str, List[str]]]]:
+        &#34;&#34;&#34;
+        Indexes a single video.
+
+        Args:
+            video_id (str): The ID of the video to index.
+
+        Returns:
+            Dict[str, Union[List[str], Dict[str, List[str]]]]: A dictionary containing indexed and newly indexed video IDs.
+        &#34;&#34;&#34;
+        logger.info(f&#34;Indexing video: {video_id}&#34;)
+        video_details: Dict[str, Union[str, int]] = (
+            self.youtube_manager.get_video_details(video_id)
+        )
+        return self._index_videos({video_id: video_details})
+
+    def _index_videos(
+        self, video_details: Dict[str, Dict[str, Union[str, int]]]
+    ) -&gt; Dict[str, Union[List[str], Dict[str, List[str]]]]:
+        &#34;&#34;&#34;
+        Indexes a collection of videos.
+
+        Args:
+            video_details (Dict[str, Dict[str, Union[str, int]]]): A dictionary containing video details.
+
+        Returns:
+            Dict[str, Union[List[str], Dict[str, List[str]]]]: A dictionary containing indexed and newly indexed video IDs.
+        &#34;&#34;&#34;
+        indexed: List[str] = []
+        newly_indexed: List[str] = []
+
+        for video_id, details in video_details.items():
+            try:
+                logger.debug(f&#34;Processing video: {video_id}&#34;)
+                if not self.redis_manager.document_exists(video_id):
+                    transcript: Optional[List[Dict[str, Union[str, float]]]] = (
+                        self.youtube_manager.get_transcript_details_from_video(video_id)
+                    )
+                    if transcript:
+                        self._process_transcript(video_id, details, transcript)
+                        newly_indexed.append(video_id)
+                        logger.info(f&#34;Indexed video {video_id}&#34;)
+                    else:
+                        logger.warning(f&#34;No transcript available for video {video_id}&#34;)
+                else:
+                    logger.info(f&#34;Video {video_id} already indexed&#34;)
+                indexed.append(video_id)
+            except Exception as e:
+                logger.error(f&#34;Error indexing video {video_id}: {str(e)}&#34;)
+
+        logger.info(
+            f&#34;Indexing complete. Total indexed: {len(indexed)}, Newly indexed: {len(newly_indexed)}&#34;
+        )
+        logger.debug(f&#34;Indexed videos: {indexed}&#34;)
+        logger.debug(f&#34;Newly indexed videos: {newly_indexed}&#34;)
+        return {&#34;indexed&#34;: indexed, &#34;newly_indexed&#34;: newly_indexed}
+
+    def _process_transcript(
+        self,
+        video_id: str,
+        details: Dict[str, Union[str, int]],
+        transcript: List[Dict[str, Union[str, float]]],
+    ) -&gt; None:
+        &#34;&#34;&#34;
+        Processes and indexes the transcript of a video.
+
+        Args:
+            video_id (str): The ID of the video.
+            details (Dict[str, Union[str, int]]): Details of the video.
+            transcript (List[Dict[str, Union[str, float]]]): Transcript of the video.
+        &#34;&#34;&#34;
+        chunk_size: int = self.config.transcript_chunk_size
+        grouped_transcript: List[List[Dict[str, Union[str, float]]]] = list(
+            zip_longest(*[iter(transcript)] * chunk_size, fillvalue=None)
+        )
+
+        for i, group in enumerate(grouped_transcript):
+            group = [
+                chunk for chunk in group if chunk is not None
+            ]  # Remove None values
+            merged_text: str = &#34; &#34;.join(chunk[&#34;text&#34;] for chunk in group)
+            start_time: float = group[0][&#34;start&#34;]
+
+            self.redis_manager.add_document(
+                f&#34;doc:{video_id}_{i}&#34;,
+                text=merged_text,
+                video_id=video_id,
+                video_title=details[&#34;title&#34;],
+                video_publish_date=details[&#34;publish_date&#34;],
+                start_time=start_time,
+                timecode=self._format_timecode(start_time),
+            )
+
+    def _format_timecode(self, seconds: float) -&gt; str:
+        &#34;&#34;&#34;
+        Formats a time in seconds into a timecode string (HH:MM:SS).
+
+        Args:
+            seconds (float): Time in seconds.
+
+        Returns:
+            str: Formatted timecode string.
+        &#34;&#34;&#34;
+        minutes, seconds = divmod(int(seconds), 60)
+        hours, minutes = divmod(minutes, 60)
+        return f&#34;{hours:02d}:{minutes:02d}:{seconds:02d}&#34;
+
+    def get_all_documents(
+        self,
+    ) -&gt; Dict[str, Union[int, List[Dict[str, Union[str, Dict[str, str]]]]]]:
+        &#34;&#34;&#34;
+        Retrieves all documents from Redis.
+
+        Returns:
+            Dict[str, Union[int, List[Dict[str, Union[str, Dict[str, str]]]]]]: A dictionary containing total keys and a sample of documents.
+        &#34;&#34;&#34;
+        return self.redis_manager.get_all_documents()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="transcripter.services.IndexingService.get_all_documents"><code class="name flex">
+<span>def <span class="ident">get_all_documents</span></span>(<span>self) ‑> Dict[str, Union[int, List[Dict[str, Union[str, Dict[str, str]]]]]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves all documents from Redis.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, Union[int, List[Dict[str, Union[str, Dict[str, str]]]]]]</code></dt>
+<dd>A dictionary containing total keys and a sample of documents.</dd>
+</dl></div>
+</dd>
+<dt id="transcripter.services.IndexingService.index_all"><code class="name flex">
+<span>def <span class="ident">index_all</span></span>(<span>self) ‑> List[Dict[str, Union[List[str], Dict[str, List[str]]]]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Indexes all configured playlists, channels, and videos.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Dict[str, Union[List[str], Dict[str, List[str]]]]]</code></dt>
+<dd>A list of dictionaries containing indexed and newly indexed video IDs.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="transcripter.services.SearchService"><code class="flex name class">
+<span>class <span class="ident">SearchService</span></span>
+<span>(</span><span>config: <a title="transcripter.config.Config" href="../config.html#transcripter.config.Config">Config</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Service for searching indexed YouTube videos and their transcripts in Redis.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>Config</code></dt>
+<dd>Configuration object containing settings.</dd>
+<dt><strong><code>redis_manager</code></strong> :&ensp;<code>RedisManager</code></dt>
+<dd>Manager for interacting with Redis.</dd>
+</dl>
+<p>Initializes the SearchService with the given configuration.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>Config</code></dt>
+<dd>Configuration object containing settings.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SearchService:
+    &#34;&#34;&#34;
+    Service for searching indexed YouTube videos and their transcripts in Redis.
+
+    Attributes:
+        config (Config): Configuration object containing settings.
+        redis_manager (RedisManager): Manager for interacting with Redis.
+    &#34;&#34;&#34;
+
+    def __init__(self, config: Config) -&gt; None:
+        &#34;&#34;&#34;
+        Initializes the SearchService with the given configuration.
+
+        Args:
+            config (Config): Configuration object containing settings.
+        &#34;&#34;&#34;
+        self.config: Config = config
+        self.redis_manager: RedisManager = RedisManager(self.config)
+        logger.info(&#34;SearchService initialized&#34;)
+        self._ensure_connection()
+
+    def _ensure_connection(self) -&gt; None:
+        &#34;&#34;&#34;
+        Ensures a connection to the Redis server.
+        &#34;&#34;&#34;
+        self.redis_manager.ensure_connection()
+
+    def search(self, query_str: str) -&gt; List[Dict[str, Union[str, float]]]:
+        &#34;&#34;&#34;
+        Searches for documents in Redis based on the query string.
+
+        Args:
+            query_str (str): The query string to search for.
+
+        Returns:
+            List[Dict[str, Union[str, float]]]: A list of dictionaries containing search results with video details.
+        &#34;&#34;&#34;
+        if not query_str:
+            logger.debug(&#34;Empty search query&#34;)
+            return []
+
+        logger.info(f&#34;Searching for: {query_str}&#34;)
+        results = self.redis_manager.search(query_str)
+        logger.debug(f&#34;Raw search results: {results}&#34;)
+
+        filtered_results: List[Dict[str, Union[str, float]]] = [
+            {
+                &#34;video_id&#34;: doc.get(&#34;video_id&#34;, &#34;&#34;),
+                &#34;video_title&#34;: doc.get(&#34;video_title&#34;, &#34;&#34;),
+                &#34;snippet&#34;: doc.get(&#34;text&#34;, &#34;&#34;),
+                &#34;start_time&#34;: float(doc.get(&#34;start_time&#34;, 0)),
+                &#34;timecode&#34;: doc.get(&#34;timecode&#34;, &#34;00:00:00&#34;),
+            }
+            for doc in results.get(&#34;docs&#34;, [])
+        ]
+
+        logger.info(f&#34;Found {len(filtered_results)} results for query: {query_str}&#34;)
+        logger.debug(f&#34;Filtered results: {filtered_results}&#34;)
+        return filtered_results
+
+    def get_all_indexed_video_ids(self) -&gt; List[str]:
+        &#34;&#34;&#34;
+        Retrieves all indexed video IDs from Redis.
+
+        Returns:
+            List[str]: A list of all indexed video IDs.
+        &#34;&#34;&#34;
+        return self.redis_manager.get_all_indexed_video_ids()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="transcripter.services.SearchService.get_all_indexed_video_ids"><code class="name flex">
+<span>def <span class="ident">get_all_indexed_video_ids</span></span>(<span>self) ‑> List[str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves all indexed video IDs from Redis.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[str]</code></dt>
+<dd>A list of all indexed video IDs.</dd>
+</dl></div>
+</dd>
+<dt id="transcripter.services.SearchService.search"><code class="name flex">
+<span>def <span class="ident">search</span></span>(<span>self, query_str: str) ‑> List[Dict[str, Union[str, float]]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Searches for documents in Redis based on the query string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>query_str</code></strong> :&ensp;<code>str</code></dt>
+<dd>The query string to search for.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Dict[str, Union[str, float]]]</code></dt>
+<dd>A list of dictionaries containing search results with video details.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="transcripter" href="../index.html">transcripter</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="transcripter.services.indexing_service" href="indexing_service.html">transcripter.services.indexing_service</a></code></li>
+<li><code><a title="transcripter.services.search_service" href="search_service.html">transcripter.services.search_service</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="transcripter.services.IndexingService" href="#transcripter.services.IndexingService">IndexingService</a></code></h4>
+<ul class="">
+<li><code><a title="transcripter.services.IndexingService.get_all_documents" href="#transcripter.services.IndexingService.get_all_documents">get_all_documents</a></code></li>
+<li><code><a title="transcripter.services.IndexingService.index_all" href="#transcripter.services.IndexingService.index_all">index_all</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="transcripter.services.SearchService" href="#transcripter.services.SearchService">SearchService</a></code></h4>
+<ul class="">
+<li><code><a title="transcripter.services.SearchService.get_all_indexed_video_ids" href="#transcripter.services.SearchService.get_all_indexed_video_ids">get_all_indexed_video_ids</a></code></li>
+<li><code><a title="transcripter.services.SearchService.search" href="#transcripter.services.SearchService.search">search</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>
