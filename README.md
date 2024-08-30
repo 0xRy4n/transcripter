@@ -1,4 +1,3 @@
-
 # Transcripter
 
 ![Transcripter](https://i.imgur.com/jg9sc7p.gif)
@@ -16,9 +15,14 @@ Transcripter's main purpose is to provide a simple way to add transcript-search 
     - `youtube_manager.py`: Handles YouTube API interactions
   - `services/`: Service layer
     - `indexing_service.py`: Manages the indexing process
+    - `search_service.py`: Manages the search process
+  - `config.py`: Configuration management
+  - `logs.py`: Logging management
 - `examples/`: Example applications
   - `basic/`: Basic example
     - `app.py`: Simple application demonstrating usage
+- `index-config.yml`: Configuration file for indexing. Used by the example app.
+- `docker-compose.yml`: Docker compose file for the example app.
 
 ## How It Works
 
@@ -30,7 +34,7 @@ Transcripter's main purpose is to provide a simple way to add transcript-search 
 ## Installation
 
 ```bash
-pip3 install -e .
+make install
 ```
 or
 ```bash
