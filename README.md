@@ -21,9 +21,6 @@
 
 </div>
 
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=Follow%20%40cloudposse)](https://twitter.com/cloudposse)
-
-
 Transcripter is a tool for indexing and searching YouTube video transcripts. It makes use of the YouTube Data API to fetch video details and transcripts, and collates and stores the transcript chunks in Redis for efficient full-text search.
 
 Transcripter's main purpose is to provide a simple way to add transcript-search functionality to your application. Inspired by (but unrelated to) <https://ippsec.rocks/>. 
