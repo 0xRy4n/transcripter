@@ -1,6 +1,9 @@
 
 # Transcripter
 
+![Transcripter](https://i.imgur.com/jg9sc7p.gif)
+
+
 Transcripter is a tool for indexing and searching YouTube video transcripts. It makes use of the YouTube Data API to fetch video details and transcripts, and collates and stores the transcript chunks in Redis for efficient full-text search.
 
 Transcripter's main purpose is to provide a simple way to add transcript-search functionality to your application. Inspired by (but unrelated to) https://ippsec.rocks/. 

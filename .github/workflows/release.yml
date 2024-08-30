@@ -17,24 +17,27 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Get version
-      id: get_version
+    - name: Set version
+      env:
+        GITHUB_EVENT_NAME: ${{ github.event_name }}
+        GITHUB_REF: ${{ github.ref }}
+        INPUT_VERSION: ${{ github.event.inputs.version }}
       run: |
-        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-          echo ::set-output name=VERSION::${{ github.event.inputs.version }}
+        if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+          echo "RELEASE_VERSION=$INPUT_VERSION" >> $GITHUB_ENV
         else
-          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/v}
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
         fi
 
     - name: Create Release
-      id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
       with:
-        tag_name: v${{ steps.get_version.outputs.VERSION }}
-        release_name: Release v${{ steps.get_version.outputs.VERSION }}
+        tag_name: v${{ env.RELEASE_VERSION }}
+        release_name: Release v${{ env.RELEASE_VERSION }}
         body: |
-          Release of version ${{ steps.get_version.outputs.VERSION }}
+          Release of version ${{ env.RELEASE_VERSION }}
         draft: false
         prerelease: false
