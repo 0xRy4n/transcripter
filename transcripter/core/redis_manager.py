@@ -80,9 +80,7 @@ class RedisManager:
                 logger.error(f"Error creating Redis index: {str(e)}")
                 raise
 
-    def add_document(
-        self, doc_id: str, **fields: Union[str, int, float]
-    ) -> None:
+    def add_document(self, doc_id: str, **fields: Union[str, int, float]) -> None:
         """
         Adds a document to Redis.
 
@@ -94,9 +92,7 @@ class RedisManager:
         fields = {k: str(v) for k, v in fields.items()}
         self.redis_client.hset(f"doc:{doc_id}", mapping=fields)
 
-    def search(
-        self, query_string: str
-    ) -> Dict[str, Union[int, List[Dict[str, str]]]]:
+    def search(self, query_string: str) -> Dict[str, Union[int, List[Dict[str, str]]]]:
         """
         Searches for documents in Redis based on the query string.
 
@@ -264,9 +260,7 @@ class RedisManager:
             Dict[str, Union[str, int, float, bool, None]]: A dictionary containing index information.
         """
         try:
-            info = self.redis_client.execute_command(
-                "FT.INFO", self.config.REDIS_INDEX
-            )
+            info = self.redis_client.execute_command("FT.INFO", self.config.REDIS_INDEX)
             return {
                 (k.decode() if isinstance(k, bytes) else str(k)): (
                     v.decode() if isinstance(v, bytes) else v
