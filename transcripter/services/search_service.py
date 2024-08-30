@@ -51,13 +51,13 @@ class SearchService:
 
         filtered_results: List[Dict[str, Union[str, float]]] = [
             {
-                "video_id": doc.get('video_id', ''),
-                "video_title": doc.get('video_title', ''),
-                "snippet": doc.get('text', ''),
-                "start_time": float(doc.get('start_time', 0)),
-                "timecode": doc.get('timecode', '00:00:00')
+                "video_id": doc.get("video_id", ""),
+                "video_title": doc.get("video_title", ""),
+                "snippet": doc.get("text", ""),
+                "start_time": float(doc.get("start_time", 0)),
+                "timecode": doc.get("timecode", "00:00:00"),
             }
-            for doc in results.get('docs', [])
+            for doc in results.get("docs", [])
         ]
 
         logger.info(f"Found {len(filtered_results)} results for query: {query_str}")

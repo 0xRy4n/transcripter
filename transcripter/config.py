@@ -22,13 +22,17 @@ class Config:
         self.REDIS_INDEX: str = os.getenv("REDIS_INDEX", "video_index")
         self.YOUTUBE_API_KEY: Optional[str] = os.getenv("YOUTUBE_API_KEY")
 
-        self.indexing_config: Dict[str, Union[Dict[str, List[str]], Dict[str, int]]] = self._load_indexing_config(config_path)
+        self.indexing_config: Dict[str, Union[Dict[str, List[str]], Dict[str, int]]] = (
+            self._load_indexing_config(config_path)
+        )
 
         logger.info(f"Loaded indexing config: {self.indexing_config}")
 
         self.transcript_chunk_size: int = 3  # Default to 3, but make this configurable
 
-    def _load_indexing_config(self, config_path: Optional[str]) -> Dict[str, Union[Dict[str, List[str]], Dict[str, int]]]:
+    def _load_indexing_config(
+        self, config_path: Optional[str]
+    ) -> Dict[str, Union[Dict[str, List[str]], Dict[str, int]]]:
         logger.info(f"Received config path: {config_path}")
         if config_path is None:
             default_path = Path(__file__).parent.parent / "indexing-config.yml"
@@ -45,21 +49,29 @@ class Config:
 
         return self._validate_and_fill_config(config)
 
-    def _get_default_indexing_config(self) -> Dict[str, Union[Dict[str, List[str]], Dict[str, int]]]:
+    def _get_default_indexing_config(
+        self,
+    ) -> Dict[str, Union[Dict[str, List[str]], Dict[str, int]]]:
         return {
             "sources": {"playlists": [], "channels": [], "videos": []},
             "indexing": {"interval": 3600},  # Default to 1 hour
         }
 
-    def _validate_and_fill_config(self, config: Dict[str, Union[Dict[str, List[str]], Dict[str, int]]]) -> Dict[str, Union[Dict[str, List[str]], Dict[str, int]]]:
+    def _validate_and_fill_config(
+        self, config: Dict[str, Union[Dict[str, List[str]], Dict[str, int]]]
+    ) -> Dict[str, Union[Dict[str, List[str]], Dict[str, int]]]:
         default_config = self._get_default_indexing_config()
 
         config.setdefault("sources", default_config["sources"])
         for source_type in default_config["sources"]:
-            config["sources"].setdefault(source_type, default_config["sources"][source_type])
+            config["sources"].setdefault(
+                source_type, default_config["sources"][source_type]
+            )
 
         config.setdefault("indexing", default_config["indexing"])
-        config["indexing"].setdefault("interval", default_config["indexing"]["interval"])
+        config["indexing"].setdefault(
+            "interval", default_config["indexing"]["interval"]
+        )
 
         return config
 
