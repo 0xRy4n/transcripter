@@ -260,7 +260,10 @@ hljs.highlightAll();
                 video_chunks[video_id].add(chunk_info)
 
         return {
-            video_id: {&#34;chunk_count&#34;: len(chunks), &#34;chunks&#34;: sorted(list(chunks))}
+            video_id: {
+                &#34;chunk_count&#34;: len(chunks),
+                &#34;chunks&#34;: sorted(list(chunks)),
+            }
             for video_id, chunks in video_chunks.items()
         }
 
