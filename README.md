@@ -15,9 +15,9 @@
 
 <div align="center">
 
-![Static Badge](https://img.shields.io/badge/Documentation-View_Now-green?link=https%3A%2F%2F0xry4n.github.io%2Ftranscripter%2F) ![Transcripter](https://i.imgur.com/jg9sc7p.gif)
+![Transcripter](https://i.imgur.com/jg9sc7p.gif)
 
-![X Follow](https://img.shields.io/twitter/follow/0xRy4n)
+![Static Badge](https://img.shields.io/badge/Documentation-View_Now-green?link=https%3A%2F%2F0xry4n.github.io%2Ftranscripter%2F) ![X Follow](https://img.shields.io/twitter/follow/0xRy4n)
 
 </div>
 
