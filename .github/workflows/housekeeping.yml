@@ -65,7 +65,7 @@ jobs:
       run: |
         pip install pdoc3
         mkdir -p docs
-        python -m pdoc --html --output-dir docs transcripter
+        python -m pdoc --html --output-dir docs transcripter --force
 
     - name: Commit documentation changes
       run: |
